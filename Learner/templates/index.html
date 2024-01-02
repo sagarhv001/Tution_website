@@ -3,6 +3,7 @@ Author: W3layouts
 Author URL: http://w3layouts.com
 -->
 {% load static %}
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -22,81 +23,7 @@ Author URL: http://w3layouts.com
   </head>
   <body>
 <!--header-->
-<header id="site-header" class="fixed-top">
-  <div class="container">
-    <nav class="navbar navbar-expand-lg navbar-dark stroke">
-      <h1>
-        <a class="navbar-brand" href="index.html">
-          <span class="fa fa-diamond"></span>Study Course <span class="logo">Journey to success</span></a>
-      </h1>
-
-      <!-- if logo is image enable this   
-        <a class="navbar-brand" href="#index.html">
-            <img src="{% static 'image-path" alt="Your logo" title="Your logo" style="height:35px;" />
-        </a> -->
-      <button class="navbar-toggler  collapsed bg-gradient" type="button" data-toggle="collapse"
-        data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false"
-        aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon fa icon-expand fa-bars"></span>
-        <span class="navbar-toggler-icon fa icon-close fa-times"></span>
-        </span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-        <ul class="navbar-nav mx-lg-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item @@about__active">
-            <a class="nav-link" href="about.html">About</a>
-          </li>
-          <li class="nav-item @@courses__active">
-            <a class="nav-link" href="courses.html">Courses</a>
-          </li>
-          <li class="nav-item @@contact__active">
-            <a class="nav-link" href="contact.html">Contact</a>
-          </li>
-        </ul>
-
-        <!--/search-right-->
-        <div class="search-right">
-          <a href="#search" title="search"><span class="fa fa-search" aria-hidden="true"></span></a>
-          <!-- search popup -->
-          <div id="search" class="pop-overlay">
-            <div class="popup">
-
-              <form action="error.html" method="GET" class="search-box">
-                <input type="search" placeholder="Search" name="search" required="required" autofocus="">
-                <button type="submit" class="btn"><span class="fa fa-search" aria-hidden="true"></span></button>
-              </form>
-
-            </div>
-            <a class="close" href="#close">×</a>
-          </div>
-          <!-- /search popup -->
-        </div>
-        <div class="top-quote mr-lg-2 text-center">
-          <a href="#login" class="btn login mr-2"><span class="fa fa-user"></span> login</a>
-        </div>
-      </div>
-      <!-- toggle switch for light and dark theme -->
-      <div class="mobile-position">
-        <nav class="navigation">
-          <div class="theme-switch-wrapper">
-            <label class="theme-switch" for="checkbox">
-              <input type="checkbox" id="checkbox">
-              <div class="mode-container py-1">
-                <i class="gg-sun"></i>
-                <i class="gg-moon"></i>
-              </div>
-            </label>
-          </div>
-        </nav>
-      </div>
-      <!-- //toggle switch for light and dark theme -->
-    </nav>
-  </div>
-</header>
+{% include 'header.html' %}
 <!--/header-->
 <!-- main-slider -->
 <section class="w3l-main-slider" id="home">
@@ -110,7 +37,7 @@ Author URL: http://w3layouts.com
                                 <div class="banner-info-bg">
                                     <h5>50% Discount on all Popular Courses</h5>
                                     <p class="mt-4 pr-lg-4">Take the first step to your journey to success with us</p>
-                                    <a class="btn btn-style btn-primary mt-sm-5 mt-4 mr-2" href="about.html"> Ready to
+                                    <a class="btn btn-style btn-primary mt-sm-5 mt-4 mr-2" href="{% url 'about' %}"> Ready to
                                         get started?</a>
                                 </div>
                             </div>
@@ -126,7 +53,7 @@ Author URL: http://w3layouts.com
                                 <div class="banner-info-bg">
                                     <h5>Learn and Improve Yourself in Less Time </h5>
                                     <p class="mt-4 pr-lg-4">Our self improvement courses is very effective </p>
-                                    <a class="btn btn-style btn-primary mt-sm-5 mt-4 mr-2" href="about.html"> Ready to
+                                    <a class="btn btn-style btn-primary mt-sm-5 mt-4 mr-2" href="{% url 'about' %}"> Ready to
                                         get started?</a>
                                 </div>
                             </div>
@@ -142,7 +69,7 @@ Author URL: http://w3layouts.com
                                 <div class="banner-info-bg">
                                     <h5>Be More Productive to Be More Successful</h5>
                                     <p class="mt-4 pr-lg-4">Don't waste your time, check out our productive courses</p>
-                                    <a class="btn btn-style btn-primary mt-sm-5 mt-4 mr-2" href="about.html"> Ready to
+                                    <a class="btn btn-style btn-primary mt-sm-5 mt-4 mr-2" href="{% url 'about' %}"> Ready to
                                         get started?</a>
                                 </div>
                             </div>
@@ -158,7 +85,7 @@ Author URL: http://w3layouts.com
                                 <div class="banner-info-bg">
                                     <h5>Enhance your skills with best online courses</h5>
                                     <p class="mt-4 pr-lg-4">Take the first step to your journey to success with us</p>
-                                    <a class="btn btn-style btn-primary mt-sm-5 mt-4 mr-2" href="about.html"> Ready to
+                                    <a class="btn btn-style btn-primary mt-sm-5 mt-4 mr-2" href="{% url 'about' %}"> Ready to
                                         get started?</a>
                                 </div>
                             </div>
@@ -336,7 +263,7 @@ Author URL: http://w3layouts.com
             <div class="mt-5 text-more">
                 <p class="pt-md-3 sample text-center">
                     Control your personal preference settings to get notified about appropriate courses
-                    <a href="courses.html">View All Courses <span class="pl-2 fa fa-long-arrow-right"></span></a>
+                    <a href="{% url 'courses' %}">View All Courses <span class="pl-2 fa fa-long-arrow-right"></span></a>
                 </p>
             </div>
         </div>
@@ -465,7 +392,7 @@ Author URL: http://w3layouts.com
             <h5 class="title-small mb-1">Start learning online</h5>
             <h3 class="title-big">Enhance your skills with best online courses</h3>
             <a href="#started" class="btn btn-style btn-outline-light mt-sm-5 mt-4 mr-2">Get started now</a>
-            <a href="contact.html" class="btn btn-style btn-primary mt-sm-5 mt-4">Contact Us</a>
+            <a href="{% url 'contact' %}" class="btn btn-style btn-primary mt-sm-5 mt-4">Contact Us</a>
         </div>
     </div>
 </div>
@@ -817,11 +744,11 @@ Author URL: http://w3layouts.com
 
           <ul>
             <h6 class="footer-title-29">Company</h6>
-            <li><a href="about.html">About company</a></li>
+            <li><a href="{% url 'about' %}">About company</a></li>
             <li><a href="#blog"> Latest Blog posts</a></li>
             <li><a href="#teacher"> Became a teacher </a></li>
-            <li><a href="courses.html">Online Courses</a></li>
-            <li><a href="contact.html">Get in touch</a></li>
+            <li><a href="{% url 'courses' %}">Online Courses</a></li>
+            <li><a href="{% url 'contact' %}">Get in touch</a></li>
           </ul>
         </div>
         <div class="col-lg-2 col-md-6 col-sm-5 col-6 footer-list-29 footer-3 mt-lg-0 mt-5">
