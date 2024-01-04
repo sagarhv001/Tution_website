@@ -25,5 +25,7 @@ urlpatterns = [
     path('contact/',contact,name="contact"),
     path('courses/',courses,name="courses"),
     path('login/',login,name="login"),
-    path('signup/',signup,name="signup")
+    path('signup/',signup,name="signup"),
+    path('otp/',otp,name="otp"),
+
 ]

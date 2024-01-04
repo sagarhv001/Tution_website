@@ -10,7 +10,7 @@ Author URL: http://w3layouts.com
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>Study Course - Education Category Bootstrap Responsive Template | Login : W3layouts</title>
+    <title>Study Course - Education Category Bootstrap Responsive Template | OTP : W3layouts</title>
 
     <!-- google fonts -->
     <link href="//fonts.googleapis.com/css?family=Nunito:400,700&display=swap" rel="stylesheet">
@@ -259,10 +259,10 @@ RIGHT SIDEBAR TOGGLE SECTION
 <section class="w3l-breadcrumb">
     <div class="breadcrumb-bg breadcrumb-bg-about py-5">
         <div class="container pt-lg-5 pt-3 p-lg-4 pb-3">
-            <h2 class="title mt-5 pt-lg-5 pt-sm-3">Login page</h2>
+            <h2 class="title mt-5 pt-lg-5 pt-sm-3">OTP Verification</h2>
             <ul class="breadcrumbs-custom-path pb-sm-5 pb-4 mt-2 text-center mb-md-5">
-                <li><a href="index.html">Home</a></li>
-                <li class="active"> / Login </li>
+                <li><a href="{% url 'index' %}">Home</a></li>
+                <li class="active"> / OTP</li>
             </ul>
         </div>
     </div>
@@ -280,17 +280,12 @@ RIGHT SIDEBAR TOGGLE SECTION
                 <div class="row map-content-9">
                     <div class="col-lg-6 pr-lg-5">
                         <form action="#" method="post" class="">
-                        {% csrf_token %}
-                        
                             <div class="form-grid">
                                 <div class="input-field">
-                                    <label> Username or Email </label>
-                                    <input type="email" name="email" id="email" placeholder="Username or Email" required="">
+                                    <label> OTP </label>
+                                    <input type="text" name="otp" id="otp" placeholder="Enter OTP" required>
                                 </div>
-                                <div class="input-field mt-4">
-                                    <label> Password</label>
-                                    <input type="password" name="Password" id="Password" placeholder="Password" required="">
-                                </div>
+                               
                             </div>
                             <label class="check-remaind mt-3">
                                 <input type="checkbox">
@@ -301,14 +296,7 @@ RIGHT SIDEBAR TOGGLE SECTION
                             <button type="submit" class="btn btn-primary btn-style">Login now</button>
                         </form>
                     </div>
-                    <div class="col-lg-6 social-login-details align-self pl-lg-5 mt-lg-0 mt-4">
-                        <p class="text-center mb-3">Or login with</p>
-                        <div class="social-media">
-                            <a href="#facebook" class="fb"><span class="fa fa-facebook" aria-hidden="true"></span> Login with facebok</a>
-                            <a href="#twitter" class="tw"><span class="fa fa-twitter" aria-hidden="true"></span> Login with twitter</a>
-                        </div>
-                        <p class="text-center mt-4">Not yet registered? <a href="{% url 'signup' %}">signup</a> here</p>
-                    </div>
+                
                 </div>
             </div>
         </div>
@@ -331,28 +319,7 @@ RIGHT SIDEBAR TOGGLE SECTION
             <a href="#linkedin" class="linkedin"><span class="fa fa-linkedin"></span></a>
           </div>
         </div>
-        <div class="col-lg-3 col-md-6 col-sm-5 col-6 footer-list-29 footer-2 mt-sm-0 mt-5">
-
-          <ul>
-            <h6 class="footer-title-29">Company</h6>
-            <li><a href="about.html">About company</a></li>
-            <li><a href="blog.html"> Latest Blog posts</a></li>
-            <li><a href="#teacher"> Became a teacher </a></li>
-            <li><a href="courses.html">Online Courses</a></li>
-            <li><a href="contact.html">Get in touch</a></li>
-          </ul>
-        </div>
-        <div class="col-lg-2 col-md-6 col-sm-5 col-6 footer-list-29 footer-3 mt-lg-0 mt-5">
-          <h6 class="footer-title-29">Programs</h6>
-          <ul>
-            <li><a href="#traning">Training Center</a></li>
-            <li><a href="#documentation">Documentation</a></li>
-            <li><a href="#release">Release Status</a></li>
-            <li><a href="#customers"> Customers</a></li>
-            <li><a href="#helpcenter"> Help Center</a></li>
-          </ul>
-
-        </div>
+  
         <div class="col-lg-3 col-md-6 col-sm-7 footer-list-29 footer-4 mt-lg-0 mt-5">
           <h6 class="footer-title-29">Suppport</h6>
           <a href="#playstore"><img src="{% static 'assets/images/googleplay.png' %}" class="img-responsive" alt=""></a>

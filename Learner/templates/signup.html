@@ -278,7 +278,8 @@ RIGHT SIDEBAR TOGGLE SECTION
         <div class="container">
             <div class="top-map">
                 <div class="map-content-9">
-                    <form action="#" method="post" class="">
+                    <form action="{% url 'otp' %}" method="post" class="">
+                      {% csrf_token %}
                         <div class="form-grid signupgrids">
                             <div class="input-field">
                                 <label> First Name * </label>
