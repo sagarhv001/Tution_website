@@ -61,9 +61,23 @@
                 </div>
                 <!-- /search popup -->
               </div>
+              {% if user_data %}
+              <div class="top-quote mr-lg-2 text-center">
+                <img src="{{user_data.profile_pic.url}}" alt="Profile pic" style="max-width: 51px; max-height: 51px; border-radius: 51px; ">
+                        <span aria-hidden="true"></span> {{user_data.first_name}} </a>
+              </div>
+              <div class="top-quote mr-lg-2 text-center">
+                <a href="{% url 'logout' %}" class="btn login mr-2"><span class="fa fa-lock"></span> logout</a>
+              </div>
+
+              {% else %}
               <div class="top-quote mr-lg-2 text-center">
                 <a href="{% url 'login' %}" class="btn login mr-2"><span class="fa fa-user"></span> login</a>
               </div>
+              <div class="top-quote mr-lg-2 text-center">
+                <a href="{% url 'signup' %}" class="btn login mr-2"><span class="fa fa-pencil"></span> signup</a>
+              </div>
+              {% endif %}
             </div>
             <!-- toggle switch for light and dark theme -->
             <div class="mobile-position">

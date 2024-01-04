@@ -279,17 +279,17 @@ RIGHT SIDEBAR TOGGLE SECTION
             <div class="top-map">
                 <div class="row map-content-9">
                     <div class="col-lg-6 pr-lg-5">
-                        <form action="#" method="post" class="">
-                        {% csrf_token %}
-                        
+                        <form action="{% url 'login' %}" method="post" class="">
+                          {% csrf_token %}
+                          {{ msg }}
                             <div class="form-grid">
                                 <div class="input-field">
-                                    <label> Username or Email </label>
-                                    <input type="email" name="email" id="email" placeholder="Username or Email" required="">
+                                    <label> Email </label>
+                                    <input type="email" name="email" id="email" placeholder="Email" required="">
                                 </div>
                                 <div class="input-field mt-4">
                                     <label> Password</label>
-                                    <input type="password" name="Password" id="Password" placeholder="Password" required="">
+                                    <input type="password" name="password" id="password" placeholder="Password" required="">
                                 </div>
                             </div>
                             <label class="check-remaind mt-3">

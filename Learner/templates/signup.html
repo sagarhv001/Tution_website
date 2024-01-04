@@ -278,8 +278,9 @@ RIGHT SIDEBAR TOGGLE SECTION
         <div class="container">
             <div class="top-map">
                 <div class="map-content-9">
-                    <form action="{% url 'otp' %}" method="post" class="">
+                    <form action="{% url 'signup' %}" method="post" class="">
                       {% csrf_token %}
+                      {{ msg }}
                         <div class="form-grid signupgrids">
                             <div class="input-field">
                                 <label> First Name * </label>
@@ -291,19 +292,19 @@ RIGHT SIDEBAR TOGGLE SECTION
                             </div>
                             <div class="input-field">
                                 <label> Phone number </label>
-                                <input type="text" name="phone" id="phone" placeholder="Phone number" required="">
+                                <input type="text" name="mobile" id="mobile" placeholder="Phone number" required="">
                             </div>
                             <div class="input-field">
-                                <label> Username or Email * </label>
-                                <input type="email" name="email" id="email" placeholder="Username or Email" required="">
+                                <label> Email * </label>
+                                <input type="email" name="email" id="email" placeholder="Email" required="">
                             </div>
                             <div class="input-field">
                                 <label> Password *</label>
-                                <input type="password" name="Password" id="Password" placeholder="Password" required="">
+                                <input type="password" name="password" id="password" placeholder="Password" required="">
                             </div>
                             <div class="input-field">
                                 <label> Confirm Password *</label>
-                                <input type="password" name="confirm_password" id="confirm_password" placeholder="Confirm password" required="">
+                                <input type="password" name="c_password" id="c_password" placeholder="Confirm password" required="">
                             </div>
                         </div>
                         <button type="submit" class="btn btn-primary btn-style mt-4">Signup / Regiser now </button>

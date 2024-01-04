@@ -279,7 +279,9 @@ RIGHT SIDEBAR TOGGLE SECTION
             <div class="top-map">
                 <div class="row map-content-9">
                     <div class="col-lg-6 pr-lg-5">
-                        <form action="#" method="post" class="">
+                        <form action="{% url 'otp' %}" method="post" class="">
+                            {% csrf_token %}
+                            {{ msg }}
                             <div class="form-grid">
                                 <div class="input-field">
                                     <label> OTP </label>
@@ -340,7 +342,7 @@ RIGHT SIDEBAR TOGGLE SECTION
     <button onclick="topFunction()" id="movetop" title="Go to top">
       &#10548;
     </button>
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js' %}"></script><script>
+    <script>
       // When the user scrolls down 20px from the top of the document, show the button
       window.onscroll = function () {
         scrollFunction()
