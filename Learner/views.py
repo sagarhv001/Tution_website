@@ -90,10 +90,14 @@ def otp(request):
             password = user_data['password'],
             mobile = user_data['mobile']
         )
-        return render(request, 'index.html', {'msg': 'Account Created Successfully!!!'})
+        
+        return render(request, 'index.html', {'msg': "Signup Successfull"})
 
      else:
         return render(request, 'otp.html', {'msg': "entered OTP is INVALID"})
+
+
+    
      
 
 def logout(request):

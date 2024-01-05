@@ -17,6 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from Learner.views import *
+from Tutor.views import *
 from django.conf.urls.static import static
 from django.conf import settings
 
@@ -30,5 +31,8 @@ urlpatterns = [
     path('signup/',signup,name="signup"),
     path('otp/',otp,name="otp"),
     path('logout/',logout, name="logout"),
+    path('tutor_signup/',tutor_signup,name="tutor_signup"),
+    path('tutor_otp/',tutor_otp,name="tutor_otp"),
+    path('tutor_login/',tutor_login,name="tutor_login"),
 
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,3 +1,82 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.http import HttpResponse
+from django.core.mail import send_mail
+from random import randint
+from django.conf import settings
+from Tutor.models import tutor
 
 # Create your views here.
+def tutor_signup(request):
+    global c_otp
+    global user_data
+    if request.method == 'GET':
+        return render(request, 'signup.html')
+    else:
+       
+        form_email = request.POST['email']
+        try:
+            
+            user_obj = tutor.objects.get(email = form_email)
+            return render(request, 'signup.html', {'msg': 'This email is already in Use.'})
+
+        except:
+          
+           
+           
+            if request.POST['password'] == request.POST['c_password']:
+                
+                c_otp = randint(100_000, 999_999)
+                
+                user_data = {
+                    'first_name': request.POST['first_name'],
+                    'last_name': request.POST['last_name'],
+                    'email': request.POST['email'],
+                    'password':request.POST['password'],
+                    'mobile': request.POST['mobile'],
+                }
+
+                subject = 'Starforge Nexus Registration'
+                message = f'Hello!! your OTP is {c_otp}'
+                sender = settings.EMAIL_HOST_USER
+                rec = [request.POST['email']]
+                send_mail(subject, message, sender, rec)
+                return render(request, 'otp.html')
+            else:
+                return render(request, 'signup.html', {'msg': 'BOTH passwords do not match !'})
+
+
+
+
+def tutor_otp(request):
+    if str(c_otp) == request.POST['otp']:
+        
+        tutor.objects.create(
+            first_name = user_data['first_name'],
+            last_name = user_data['last_name'],
+            email = user_data['email'],
+            password = user_data['password'],
+            designation = user_data['designation'],
+            experience = user_data['experience'],
+            mobile = user_data['mobile'],
+            mobile = user_data['mobile'],
+        )
+        
+        return render(request, 'tutor_index.html', {'msg': "Signup Successfull"})
+
+    else:
+        return render(request, 'tutor_otp.html', {'msg': "entered OTP is INVALID"})
+
+
+def tutor_login(request):
+    if request.method == 'GET':
+        return render(request, 'tutor_login.html')
+    else:
+        session_user = tutor.objects.get(email = request.POST['email'])
+        
+        if request.POST['password'] == session_user.password:
+            
+            request.session['email'] = session_user.email
+            return redirect('index')
+
+        else:
+            return render(request, 'tutor_login.html', {'msg': "Invalid Password!!"})
