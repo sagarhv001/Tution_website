@@ -112,4 +112,6 @@ def logout(request):
     return redirect('index')
 
 def course_view(request):
-    return render(request, 'course_view.html')
+    selected_course = Course.objects.get(id = request.POST['course_id'])
+    context ={selected_course}
+    return render(request, 'course_view.html',context)
