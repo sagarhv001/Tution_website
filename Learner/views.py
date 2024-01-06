@@ -4,6 +4,7 @@ from django.core.mail import send_mail
 from random import randint
 from django.conf import settings
 from Learner.models import Learner
+from Tutor.models import *
 
 # Create your views here.
 def index(request):
@@ -18,8 +19,12 @@ def contact(request):
     return render(request,'contact.html')
 
 def courses(request):
-    return render(request,'courses.html')
-
+    if request.method == 'GET':
+        all_courses  = Course.objects.all()    
+        return render(request,'courses.html', {'course': all_courses})
+    else:
+        selected_course = Course.objects.get(id = request.POST['course_id'])
+        return render(request,'course_view.html', {'course': selected_course})  
 def about(request):
     return render(request,'about.html')
 
@@ -81,6 +86,8 @@ def signup(request):
 
 
 def otp(request):
+     
+
      if str(c_otp) == request.POST['otp']:
         
         Learner.objects.create(
@@ -103,3 +110,6 @@ def otp(request):
 def logout(request):
     del request.session['email']
     return redirect('index')
+
+def course_view(request):
+    return render(request, 'course_view.html')

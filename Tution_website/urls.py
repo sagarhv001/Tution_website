@@ -31,8 +31,12 @@ urlpatterns = [
     path('signup/',signup,name="signup"),
     path('otp/',otp,name="otp"),
     path('logout/',logout, name="logout"),
+    path('course_view',course_view,name="course_view"),
     path('tutor_signup/',tutor_signup,name="tutor_signup"),
     path('tutor_otp/',tutor_otp,name="tutor_otp"),
     path('tutor_login/',tutor_login,name="tutor_login"),
+    path('tutor_index/',tutor_index,name="tutor_index"),
+    path('tutor_logout/',tutor_logout, name="tutor_logout"),
+    path('tutor_add_lecture/',tutor_add_lecture,name="tutor_add_lecture"),
 
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
